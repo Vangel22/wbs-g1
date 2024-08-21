@@ -1,4 +1,4 @@
-// Statusi - resolved, rejected, pending
+// Statusi - fullfilled, rejected, pending
 
 const fetchDataPromise = () => {
   return new Promise((resolve, reject) => {
