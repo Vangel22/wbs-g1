@@ -1,0 +1,15 @@
+{
+  "name": "c01",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "scriptone": "node index.js",
+    "scriptwo": "node index2.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {},
+  "devDependencies": {}
+}
