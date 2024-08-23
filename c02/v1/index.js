@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { getCars, addCar, updateCar } = require("./handlers/cars");
+const { getCars, addCar, updateCar, removeCar } = require("./handlers/cars");
 
 const app = express();
 app.use(express.json());
@@ -10,5 +10,6 @@ app.get("/cars", getCars);
 // app.get("/cars", () => { console.log("Nema da ja fati ovaa funkcija") });
 app.post("/cars", addCar);
 app.put("/cars/:id", updateCar);
+app.delete("/cars/:id", removeCar);
 
 app.listen(3000, () => console.log("Server started at port 3000!"));

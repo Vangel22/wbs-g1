@@ -48,7 +48,20 @@ const updateCar = async (req, res) => {
   }
 };
 
-const removeCar = async (req, res) => {};
+const removeCar = async (req, res) => {
+  try {
+    const carId = Number(req.params.id);
+    let cars = await readFile("data.json");
+
+    cars = cars.filter((car, index) => index !== carId); // zemi gi site drugi avtomobili osven toj so carId
+
+    await writeFile("data.json", cars);
+    return res.status(200).send("Car deleted successfully!");
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send("Internal Server Error");
+  }
+};
 
 module.exports = {
   getCars,
