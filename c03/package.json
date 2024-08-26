@@ -13,6 +13,6 @@
     "bcryptjs": "^2.4.3",
     "express": "^4.19.2",
     "mongoose": "^8.5.4",
-    "validate.js": "^0.13.1"
+    "node-input-validator": "^4.5.1"
   }
 }
