@@ -1,0 +1,2 @@
+- Треба да направите 3 корисници со помош на Postman - преку /register
+- Треба да дополните updateCars, removeCars
