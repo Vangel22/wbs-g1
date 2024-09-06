@@ -39,6 +39,10 @@ app.post("/auth/reset", resetPassword);
 app.post("/api/storage", upload);
 app.get("/api/storage/:filename", download);
 
+// Homework
+// app.delete("/api/storage/:filename", removeFile);
+// app.get("/api/list", listFilesForUser)
+
 app.listen(getSection("development").port, () =>
   console.log(`Server starter at port ${getSection("development").port}`)
 );
