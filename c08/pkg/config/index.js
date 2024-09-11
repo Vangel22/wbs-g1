@@ -10,6 +10,9 @@ if (config === null) {
 }
 
 const getSection = (section) => {
+  // if (typeof section !== String) {
+  //   return "Nekoja greska";
+  // }
   if (!config[section])
     throw `Configuration section ${section} does not exist!`;
   return config[section];

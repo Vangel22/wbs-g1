@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
-const { getSection } = require("../config");
 
-const uri = `mongodb+srv://${getSection(process.env.SECTION).port}:${
-  process.env.MONGO_PASSWORD
-}@cluster0.12jzasd.mongodb.net/grupa1?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.12jzasd.mongodb.net/grupa1?retryWrites=true&w=majority`;
+
+// const uri = `mongodb+srv://${getSection(process.env.SECTION).port}:${
+//   process.env.MONGO_PASSWORD
+// }@cluster0.12jzasd.mongodb.net/grupa1?retryWrites=true&w=majority`;
 
 async function connect() {
   try {
