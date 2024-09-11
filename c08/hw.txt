@@ -1,0 +1,7 @@
+Domasna:
+
+- Se raboti za Cars schemata
+
+1. Iskopirajte/napravete go modelot za cars so multitenancy
+2. Napravete gi handlerite - CRUD
+3. Napravete gi rutite - POST, PUT, GET, DELETE
