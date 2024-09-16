@@ -1,0 +1,17 @@
+{
+  "name": "c10",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.0",
+    "mailgun.js": "^10.2.3",
+    "node-input-validator": "^4.5.1"
+  }
+}
