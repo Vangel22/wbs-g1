@@ -31,6 +31,8 @@ const sendMail = async (to, type, data) => {
   const templatePath = `${__dirname}/../../email_templates/${mailTemplates[type].template}`;
   let content = await readTemplate(templatePath);
 
+  //   const token = jwt.sign()
+
   for (let i in data) {
     // vo ciklusot vrtime niz objektot
     // i varijablata e klucot:

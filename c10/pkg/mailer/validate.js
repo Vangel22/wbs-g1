@@ -2,7 +2,7 @@ const { Validator } = require("node-input-validator");
 
 const MailgunFields = {
   to: "required|string",
-  message: "required|string",
+  message: "required|object",
 };
 
 const validate = async (data, schema) => {
