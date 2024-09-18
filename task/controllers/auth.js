@@ -36,11 +36,6 @@ const login = async (req, res) => {
       exp: new Date() / 1000 + 7 * 24 * 60 * 60,
     };
 
-    // new Date() -> vremeto od 1 januari 1970 vo milisekundi
-    // new Date() / 1000 -> vremeto od 1 januari 1970 vo sekundi
-    // new Date() / 1000 + 7 * 24 * 60 * 60 -> vremeto od povikuvanje na login fukcijata + 7 denovi vo idnina
-
-    // process.env.ENVIRONMENT
     const token = jwt.sign(payload, getSection("development").jwt_secret);
 
     return res.status(200).send({ token });

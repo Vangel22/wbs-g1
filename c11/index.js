@@ -5,20 +5,19 @@ const connectDB = require("./pkg/db/config");
 connectDB();
 
 const { getSection } = require("./pkg/config");
-const {
-  sendWelcomeMail,
-  sendPasswordResetMail,
-} = require("./handlers/mailgun");
+
 const {
   login,
   register,
   refreshToken,
   forgotPassword,
   resetPasswordTemplate,
+  resetPassword,
 } = require("./handlers/auth");
 
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 app.use(
@@ -47,6 +46,7 @@ app.get("/api/forgot-password", (req, res) => {
 });
 app.post("/api/auth/forgot-password", forgotPassword);
 app.get("/reset-password/:id/:token", resetPasswordTemplate);
+app.post("/reset-password/:id/:token", resetPassword);
 
 // app.post("/api/welcome", sendWelcomeMail);
 // app.post("/api/reset", sendPasswordResetMail);

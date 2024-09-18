@@ -125,7 +125,7 @@ const resetPasswordTemplate = async (req, res) => {
   try {
     const { id, token } = req.params;
 
-    const user = await getById(id);
+    const user = await getById(id.toString());
 
     if (!user) {
       return res.status(400).send("User not found!");
@@ -139,6 +139,37 @@ const resetPasswordTemplate = async (req, res) => {
     }
 
     res.render("reset-password", { email: user.email });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send("Internal Server Error!");
+  }
+};
+
+const resetPassword = async (req, res) => {
+  try {
+    const { id, token } = req.params;
+    const { password, confirmPassword } = req.body;
+
+    if (password !== confirmPassword) {
+      return res.status(400).send("Passwords do not match!");
+    }
+
+    const user = await getById(id);
+
+    if (!user) {
+      return res.status(400).send("User not found!");
+    }
+
+    const secret = getSection("development").jwt_secret + user.password;
+    const payload = jwt.verify(token, secret);
+    if (!payload) {
+      return res.status(400).send("Token not valid!");
+    }
+
+    const newHashedPassword = bcrypt.hashSync(password);
+
+    await setNewPassword(id, newHashedPassword);
+    return res.status(200).send("Password reset successful!");
   } catch (err) {
     console.error(err);
     return res.status(500).send("Internal Server Error!");
@@ -181,7 +212,7 @@ module.exports = {
   login,
   register,
   refreshToken,
-  // resetPassword,
+  resetPassword,
   resetPasswordTemplate,
   forgotPassword,
 };
