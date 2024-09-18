@@ -48,9 +48,6 @@ app.post("/api/auth/forgot-password", forgotPassword);
 app.get("/reset-password/:id/:token", resetPasswordTemplate);
 app.post("/reset-password/:id/:token", resetPassword);
 
-// app.post("/api/welcome", sendWelcomeMail);
-// app.post("/api/reset", sendPasswordResetMail);
-
 app.listen(getSection("development").port, () =>
   console.log(`Server started at port ${getSection("development").port}`)
 );
