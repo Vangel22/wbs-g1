@@ -107,7 +107,9 @@ const forgotPassword = async (req, res) => {
     console.log("link", link); // vie mozete da odite preku Mailgun
 
     const data = {
-      user,
+      // Account schemata dopolnete ja so firstname i lastname
+      // user.firstname,
+      // user.lastname,
       link,
     };
 
@@ -166,7 +168,7 @@ const resetPassword = async (req, res) => {
       return res.status(400).send("Token not valid!");
     }
 
-    const newHashedPassword = bcrypt.hashSync(password);
+    const newHashedPassword = bcrypt.hashSync(password); // test123 => ihuaoefguesf8732r7823yr7823hf0923rh9wfu9shfiu
 
     await setNewPassword(id, newHashedPassword);
     return res.status(200).send("Password reset successful!");
